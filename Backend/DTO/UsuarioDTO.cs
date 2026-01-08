@@ -16,7 +16,7 @@ namespace DTO
 
         public string Gmail { get; set; } = null!;
 
-        public string FechaCreacion { get; set; }
+        public DateOnly FechaCreacion { get; set; }
 
         public int Activo { get; set; }
 

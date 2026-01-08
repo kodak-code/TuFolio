@@ -35,10 +35,6 @@ namespace Utility
             #region Usuario
             CreateMap<Usuario, UsuarioDTO>()
                 .ForMember(destino =>
-                    destino.FechaCreacion,
-                    opt => opt.MapFrom(origen => origen.FechaCreacion.ToString("dd/MM/yyyy"))
-                )
-                .ForMember(destino =>
                     destino.Activo,
                     opt => opt.MapFrom(origen => origen.Activo == true ? 1 : 0)
                 )
@@ -48,7 +44,7 @@ namespace Utility
                 )
                 .ForMember(destino =>
                     destino.SubDivisionNombre,
-                    opt => opt.MapFrom(origen => origen.SubDivisionNavigation == null ? null : origen.SubDivisionNavigation.Nombre)
+                    opt => opt.MapFrom(origen => origen.SubDivisionNavigation == null ? null : $"{origen.SubDivisionNavigation.Nombre}, {origen.SubDivisionNavigation.Pais.Nombre}")
                 )
                 .ReverseMap()
                 .ForMember(destino =>

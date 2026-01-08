@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>TuFolio Admin</span>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon style="color: white;">menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav opened="true" mode="side" style="width: 200px;">
+    <mat-nav-list>
+
+      <mat-list-item>
+        <a routerLink="/pages/usuario" style="display: flex; align-items: center; text-decoration: none; width: 100%;color: inherit;">
+          <mat-icon style="margin-right: 16px;">group</mat-icon>
+          <span>Usuarios</span>
+        </a>
+      </mat-list-item>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div style="height: 90vh;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -29,6 +29,7 @@ namespace IOC
             services.AddAutoMapper(typeof(AutoMapperProfile));
 
             services.AddScoped<IRolService, RolService>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
         }
     }
 }
