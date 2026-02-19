@@ -1,11 +1,11 @@
 import { Component, Inject } from '@angular/core';
-import { SharedModule } from '../../../../Reutilizable/shared/shared-module';
+import { SharedModule } from '../../../../shared/shared-module';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Usuario } from '../../../../Interfaces/usuario';
-import { UsuarioService } from '../../../../Services/usuario.service';
-import { UtilidadService } from '../../../../Reutilizable/utilidad.service';
+import { Usuario } from '../../../../core/interfaces/usuario';
+import { UsuarioService } from '../../../../core/services/usuario.service';
+import { UtilidadService } from '../../../../core/services/utilidad.service';
 
 @Component({
   selector: 'app-modal-usuario.component',

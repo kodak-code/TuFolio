@@ -9,17 +9,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace BLL.Servicios
 {
     public class UsuarioService : IUsuarioService
     {
         private readonly IGenericRepository<Usuario> _usuarioRepo;
+        private readonly IGenericRepository<UsuarioRol> _usuarioRolRepo;
+        private readonly IGenericRepository<Rol> _rolRepo;
         private readonly IMapper _mapper;
 
-        public UsuarioService(IGenericRepository<Usuario> usuarioRepo, IMapper mapper)
+        public UsuarioService(IGenericRepository<Usuario> usuarioRepo, IGenericRepository<UsuarioRol> usuarioRolRepo, IGenericRepository<Rol> rolRepo, IMapper mapper)
         {
             _usuarioRepo = usuarioRepo;
+            _usuarioRolRepo = usuarioRolRepo;
+            _rolRepo = rolRepo;
             _mapper = mapper;
         }
 
@@ -120,5 +125,34 @@ namespace BLL.Servicios
             }
         }
 
+        public async Task<SesionDTO> ValidarCredenciales(string gmail, string rol)
+        {
+            try
+            {
+                var query = await _usuarioRolRepo.Consultar();
+                
+                var usuarioRolEncontrado = await query
+                    .Include(ur => ur.Usuario)
+                    .Include(ur => ur.Rol)
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(ur => ur.Rol.Nombre == rol && ur.Usuario.Gmail == gmail);
+
+                if (usuarioRolEncontrado == null) 
+                    throw new TaskCanceledException("El usuario no existe o credenciales inválidas");
+
+                var sesion = new SesionDTO { 
+                    IdUsuario = usuarioRolEncontrado.UsuarioId, 
+                    Gmail = usuarioRolEncontrado.Usuario?.Gmail, 
+                    RolDescripcion = usuarioRolEncontrado.Rol?.Nombre 
+                }; 
+                
+                return sesion;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

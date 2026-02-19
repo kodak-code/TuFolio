@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class LoginDTO
+    public class SesionDTO
     {
+        public int IdUsuario { get; set; }
+
         public string? Gmail { get; set; }
 
-        public string? RolNombre { get; set; }
+        public string? RolDescripcion { get; set; }
     }
 }

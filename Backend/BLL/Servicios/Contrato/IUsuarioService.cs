@@ -13,6 +13,7 @@ namespace BLL.Servicios.Contrato
         Task<UsuarioDTO> Crear(UsuarioDTO modelo);
         Task<bool> Editar(UsuarioDTO modelo);
         Task<bool> Desactivar(int id);
+        Task<SesionDTO> ValidarCredenciales(string gmail, string rol);
 
     }
 }

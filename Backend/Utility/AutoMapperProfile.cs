@@ -55,6 +55,18 @@ namespace Utility
                     destino.Verificado,
                     opt => opt.MapFrom(origen => origen.Verificado == 1 ? true : false)
                 );
+
+            CreateMap<UsuarioRol, SesionDTO>()
+                .ForMember(destino =>
+                destino.IdUsuario,
+                opt => opt.MapFrom(origen => origen.UsuarioId))
+                .ForMember(destino =>
+                destino.Gmail,
+                opt => opt.MapFrom(origen => origen.Usuario.Gmail))
+                .ForMember(destino =>
+                destino.RolDescripcion,
+                opt => opt.MapFrom(origen => origen.Rol.Nombre));
+
             #endregion
 
             #region Rol

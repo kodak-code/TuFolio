@@ -1,15 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from '../../Reutilizable/shared/shared-module';
+import { SharedModule } from '../../shared/shared-module';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-layout.component',
+  selector: 'app-admin.component',
   imports: [CommonModule, ReactiveFormsModule, SharedModule, RouterModule],
-  templateUrl: './layout.component.html',
-  styleUrl: './layout.component.css',
+  templateUrl: './admin.component.html',
+  styleUrl: './admin.component.css',
 })
-export class LayoutComponent {
+export class AdminComponent {
 
 }

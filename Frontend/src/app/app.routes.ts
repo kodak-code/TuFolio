@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './Components/login/login.component';
+import { Login } from './features/auth/pages/login/login';
 
 export const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: Login },
 
   {
-    path: 'pages',
+    path: 'admin',
     loadChildren: () =>
-      import('./Components/layout/layout-module').then(m => m.LayoutModule)
+      import('./features/admin/admin-module').then(m => m.AdminModule)
   },
 
   // Redirección para rutas inválidas

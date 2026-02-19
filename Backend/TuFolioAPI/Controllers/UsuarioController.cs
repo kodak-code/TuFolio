@@ -100,5 +100,25 @@ namespace TuFolioAPI.Controllers
 
             return Ok(respuesta);
         }
+
+        [HttpPost]
+        [Route("IniciarSesion")]
+        public async Task<IActionResult> IniciarSesion([FromBody] LoginDTO login)
+        {
+            var rsp = new Response<SesionDTO>();
+
+            try
+            {
+                rsp.Estado = true;
+                rsp.Valor = await _usuarioServicio.ValidarCredenciales(login.Gmail, login.RolNombre);
+            }
+            catch (Exception ex)
+            {
+                rsp.Estado = false;
+                rsp.Mensaje = ex.Message;
+            }
+
+            return Ok(rsp);
+        }
     }
 }

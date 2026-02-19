@@ -1,12 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
-import { SharedModule } from '../../../../Reutilizable/shared/shared-module';
-import { Usuario } from '../../../../Interfaces/usuario';
+import { SharedModule } from '../../../../shared/shared-module';
+import { Usuario } from '../../../../core/interfaces/usuario';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
-import { UsuarioService } from '../../../../Services/usuario.service';
-import { UtilidadService } from '../../../../Reutilizable/utilidad.service';
-import { ModalUsuarioComponent } from '../../Modals/modal-usuario/modal-usuario.component';
+import { UsuarioService } from '../../../../core/services/usuario.service';
+import { UtilidadService } from '../../../../core/services/utilidad.service';
+import { ModalUsuarioComponent } from '../../modals/modal-usuario/modal-usuario.component';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -38,7 +38,7 @@ export class UsuarioComponent {
   obtenerUsuarios() {
     this._usuarioServicio.lista().subscribe({
       next: (data) => {
-        console.log('Respuesta API:', data);
+        // console.log('Respuesta API:', data);
         if (data.estado)
           this.dataListaUsuarios.data = data.valor
         else
@@ -85,11 +85,11 @@ export class UsuarioComponent {
 
   eliminarUsuario(usuario: Usuario) {
     Swal.fire({
-      title: '¿Desea eliminar el usuario?',
+      title: '¿Desea desactivar el usuario?',
       text: usuario.nombre,
       icon: 'warning',
       confirmButtonColor: '#3085d6',
-      confirmButtonText: 'Sí, eliminar',
+      confirmButtonText: 'Sí, desactivar',
       showCancelButton: true,
       cancelButtonColor: '#d33',
       cancelButtonText: 'No, volver'
