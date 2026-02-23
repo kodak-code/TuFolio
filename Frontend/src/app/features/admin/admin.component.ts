@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-admin.component',
+  standalone: true,
   imports: [CommonModule, ReactiveFormsModule, SharedModule, RouterModule],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css',
