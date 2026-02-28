@@ -1,1 +1,161 @@
-<p>header works!</p>
+<div class="relative">
+  <nav class="lg:container mx-auto px-5 py-1">
+    <div class="lg:grid lg:grid-cols-3 lg:flex justify-between items-center relative">
+
+      <input type="checkbox" id="menu-toggle" class="peer sr-only">
+
+      <!-- LOGO + HAMBURGUESA -->
+      <div class="grid grid-cols-2 relative z-[60]">
+        <div class="flex justify-start">
+          <a href="./">
+            <img src="/assets/images/logo.png" alt="Logo TuFolio" class="h-22 sm:h-22 md:h-24 lg:h-24 xl:h-24 2xl:h-30">
+          </a>
+        </div>
+
+        <!-- HAMBURGUESA -->
+        <div class="lg:hidden mt-6 flex justify-end relative z-[60]">
+          <label for="menu-toggle" class="cursor-pointer space-y-2 rounded select-none" draggable="false"
+            style="touch-action: manipulation;">
+            <span aria-hidden="true" class="block w-8 h-1 bg-gray-100 rounded transition-transform duration-300 ease-in-out transform origin-center
+                 peer-checked:rotate-45 peer-checked:translate-y-2"></span>
+
+            <span aria-hidden="true" class="block w-8 h-1 bg-gray-100 rounded transition-all duration-300 ease-in-out transform
+                 peer-checked:opacity-0 peer-checked:scale-x-0"></span>
+
+            <span aria-hidden="true" class="block w-8 h-1 bg-gray-100 rounded transition-transform duration-300 ease-in-out transform origin-center
+                 peer-checked:-rotate-45 peer-checked:-translate-y-2"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- OVERLAY -->
+      <div class=" fixed inset-0 bg-black/40 opacity-0 pointer-events-none
+                  transition-opacity duration-500 ease-in-out
+                  peer-checked:opacity-100 peer-checked:pointer-events-auto
+                  lg:hidden
+                  lg:transition-none lg:duration-0
+                  z-40"></div>
+
+      <!-- MENU -->
+      <div id="mobile-menu" class="flex pb-60 lg:pb-0
+            bg-gradient-to-br from-[#1F2937] to-[#065F46]
+            fixed inset-y-0 -left-[300px]
+            w-[300px] max-w-full
+            z-50
+            flex-col items-center justify-center
+            opacity-0 pointer-events-none
+            peer-checked:left-0 peer-checked:opacity-100 peer-checked:pointer-events-auto
+            transition-all duration-[900ms] ease-in-out
+            lg:bg-none
+            lg:static
+            lg:flex
+            lg:left-0
+            lg:w-auto
+            lg:bg-transparent
+            lg:opacity-100
+            lg:pointer-events-auto
+            lg:transition-none
+            lg:duration-0">
+        <ul class="gap-x-15 lg:gap-x-5 space-y-6 lg:space-y-0 font-semibold 
+                   lg:flex text-base lg:text-lg w-full lg:w-auto">
+
+          <li class="flex-1 lg:flex-none group">
+            <a href="#" class="flex items-center justify-between w-full pl-10 text-white/90 hover:text-white transition-colors
+                     lg:block lg:w-auto lg:pl-0
+                     lg:after:content-[''] lg:after:block lg:after:h-0.5 lg:after:bg-emerald-400
+                     lg:after:scale-x-0 lg:hover:after:scale-x-100
+                     lg:after:origin-left lg:after:transition-transform">
+              Plantillas
+
+              <span aria-hidden="true" class="lg:hidden text-5xl pb-2 pr-6 select-none transform -translate-x-6 opacity-0
+                           transition-all duration-300 ease-out
+                           group-hover:translate-x-0 group-hover:opacity-100">
+                →
+              </span>
+
+            </a>
+          </li>
+
+          <li class="flex-1 lg:flex-none group">
+            <a href="#" class="flex items-center justify-between w-full pl-10 text-white/90 hover:text-white transition-colors
+                     lg:block lg:w-auto lg:pl-0
+                     lg:after:content-[''] lg:after:block lg:after:h-0.5 lg:after:bg-emerald-400
+                     lg:after:scale-x-0 lg:hover:after:scale-x-100
+                     lg:after:origin-left lg:after:transition-transform">
+              Comunidad
+
+              <span aria-hidden="true" class="lg:hidden text-5xl pb-2 pr-6 select-none transform -translate-x-6 opacity-0
+                           transition-all duration-300 ease-out
+                           group-hover:translate-x-0 group-hover:opacity-100">
+                →
+              </span>
+
+            </a>
+          </li>
+
+          <li class="flex-1 lg:flex-none group">
+            <a href="#" class="flex items-center justify-between w-full pl-10 text-white/90 hover:text-white transition-colors
+                     lg:block lg:w-auto lg:pl-0
+                     lg:after:content-[''] lg:after:block lg:after:h-0.5 lg:after:bg-emerald-400
+                     lg:after:scale-x-0 lg:hover:after:scale-x-100
+                     lg:after:origin-left lg:after:transition-transform">
+              Nosotros
+
+              <span aria-hidden="true" class="lg:hidden text-5xl pb-2 pr-6 select-none transform -translate-x-6 opacity-0
+                           transition-all duration-300 ease-out
+                           group-hover:translate-x-0 group-hover:opacity-100">
+                →
+              </span>
+
+            </a>
+          </li>
+
+          <li class="flex-1 lg:flex-none group">
+            <a href="#" class="flex items-center justify-between w-full pl-10 text-white/90 hover:text-white transition-colors
+                     lg:block lg:w-auto lg:pl-0
+                     lg:after:content-[''] lg:after:block lg:after:h-0.5 lg:after:bg-emerald-400
+                     lg:after:scale-x-0 lg:hover:after:scale-x-100
+                     lg:after:origin-left lg:after:transition-transform">
+              Contacto
+
+              <span aria-hidden="true" class="lg:hidden text-5xl pb-2 pr-6 select-none transform -translate-x-6 opacity-0
+                           transition-all duration-300 ease-out
+                           group-hover:translate-x-0 group-hover:opacity-100">
+                →
+              </span>
+
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- BOTONES -->
+      <div class="flex
+               fixed bottom-8 -left-[300px] z-[60]
+               w-[300px] max-w-full
+               flex-col gap-4 items-start px-6 text-base
+               opacity-0 pointer-events-none
+               peer-checked:left-0 peer-checked:opacity-100 peer-checked:pointer-events-auto
+               transition-all duration-[900ms] ease-in-out
+
+               /* Desktop: estático y sin transiciones al redimensionar */
+               lg:static lg:left-0 lg:opacity-100 lg:pointer-events-auto
+               lg:transition-none lg:duration-0
+               lg:flex-row lg:justify-end lg:gap-x-5 lg:w-auto lg:max-w-none lg:items-center lg:px-0">
+
+        <a href="#" class="w-full lg:w-auto text-black bg-white px-4 py-3 rounded-full font-semibold text-center
+            hover:bg-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+          Iniciar Sesión
+        </a>
+
+        <a href="#" class="w-full lg:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 rounded-full font-semibold text-center
+            transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+          Regístrate
+        </a>
+
+      </div>
+
+    </div>
+  </nav>
+</div>

@@ -1,4 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
-@import '@angular/material/prebuilt-themes/indigo-pink.css';
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "tailwindcss";
+
+
+@layer utilities {
+  .font-aoboshi {
+    font-family: "Aoboshi One", serif;
+  }
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+body.landing-bg {
+  background: linear-gradient(to bottom right,
+      #1F2937 5%,
+      #065F46 80%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
